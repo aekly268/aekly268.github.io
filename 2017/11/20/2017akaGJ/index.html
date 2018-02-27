@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut Icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <!--Description-->
+    
+        <meta name="description" content="Game, program, design, and life">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Angel">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Game】城市猿 - ct ape"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Angel"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>【Game】城市猿 - ct ape - Angel</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/sass/main.css">
+
+    <!--[if lt IE 8]>
+        <script src="/js/ie/html5shiv.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/sass/ie8.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/sass/ie9.css">
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo_binly.png" alt="" /></span><span class="title">Angel</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/tags/game/">Games</a>
+            </li>
+        
+            <li>
+                <a href="/tags/program">Program</a>
+            </li>
+        
+            <li>
+                <a href="/tags/life">Life</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>【Game】城市猿 - ct ape</h1>
+
+
+
+<!-- Gallery -->
+
+    
+<div class="gallery-container">
+    
+        
+            <div class="picture-container">
+                <a href="#" data-featherlight="/../images/ctApe_1.PNG">
+                    <img src="/../images/ctApe_1.PNG" class="img-thumbnail" />
+                </a>
+            </div>
+        
+            <div class="picture-container">
+                <a href="#" data-featherlight="/../images/ctApe_2.PNG">
+                    <img src="/../images/ctApe_2.PNG" class="img-thumbnail" />
+                </a>
+            </div>
+        
+    
+</div>
+
+
+<!-- Content -->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>和同學一起去參加<a href="https://contest.bhuntr.com/tw/akatsuki_hcktn2017" target="_blank" rel="noopener">Akatsuki Game Jam</a>，增加作品順便累積實力！</p>
+<h2 id="城市猿-ct-ape"><a href="#城市猿-ct-ape" class="headerlink" title="城市猿 - ct ape"></a>城市猿 - ct ape</h2><p>這次的主題是”fusion”，我們融合魔王和挑戰者的概念，讓每隊的玩家同時能挑戰也擔任別隊的魔王，由自己設計陷阱干擾對方！</p>
+<p>說明：城市猿要和身上的蝨子搏鬥，因此展開了攻防戰，在贏得勝利的同時製造混亂擾亂敵人吧！<br>操作：2人負責操控手指擺出指定手勢，即可開槍擊暈小蝨子；2人負責操控蝨子拖拉拼圖成正確圖案，即可用刺青槍射歪手指<br>遊戲連結：<a href="https://angelcheng.itch.io/ctape" target="_blank" rel="noopener">https://angelcheng.itch.io/ctape</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/MfDioFjCEgc" frameborder="0" allowfullscreen></iframe></div></p>
+<h2 id="程式小筆記"><a href="#程式小筆記" class="headerlink" title="程式小筆記"></a>程式小筆記</h2><p>github完整專案： <a href="https://github.com/aekly268/ct-Ape" target="_blank" rel="noopener">https://github.com/aekly268/ct-Ape</a></p>
+<p>這次的Game Jam我負責多人操控和拼圖的部分。<br>由於之前做過<a href="/2015/02/21/EatHoney">吃蜂蜜</a>的影響，利用陣列來判斷拼圖是否能夠被移動的刻板印象一直存在在腦中，<br>所以在轉換到unity要使用碰撞時一直想不透，總是會有拼圖卡死的BUG…</p>
+<p>原本的做法：由玩家去控制拼圖移動，再由拼圖本身去判斷碰撞的物體<br>BUG出現：上一偵的位置根據電腦效能是不一定的，拼圖位置可能設置為碰撞到之後的位置，而拼圖又被設成不能動<br><figure class="highlight plain"><figcaption><span>box</span><a href="https://github.com/aekly268/ct-Ape/blob/master/Assets/Scripts/Box.cs" target="_blank" rel="noopener">box.cs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">private void OnTriggerEnter2D(Collider2D collision)</span><br><span class="line">&#123;</span><br><span class="line">    if(collision.tag == &quot;box&quot;)//如果拼圖撞到其他拼圖</span><br><span class="line">    &#123;</span><br><span class="line">        transform.position = lastPos;//把他移回原本的位置</span><br><span class="line">        canMove = false;//將拼圖設置成不能移動</span><br><span class="line">    &#125;</span><br><span class="line">    if (collision.tag == &quot;Player&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        player = collision.GetComponent&lt;Player&gt;();</span><br><span class="line">        player.canMove = false;          </span><br><span class="line">        player.LastPos();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>幸好這次的隊友指點迷津，最後利用射線來判斷是否遇到邊界或拼圖，在時限內做出來！<br>最後的做法：</p>
+<ol>
+<li>判斷從玩家發出的射線和玩家想互動的拼圖是不是同一片，是則可以互動，否則反之</li>
+<li>當玩家放開互動鍵時，直接將所有拼圖設置成物理靜態，則可以排除原本的BUG<figure class="highlight plain"><figcaption><span>player</span><a href="https://github.com/aekly268/ct-Ape/blob/master/Assets/Scripts/Player.cs" target="_blank" rel="noopener">player.cs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">void raycastBox()</span><br><span class="line">&#123;</span><br><span class="line">    RaycastHit2D o = Physics2D.Linecast(transform.position, transform.position + faceTo, test);//朝人物面向發出射線</span><br><span class="line">    if (o)//如果打到東西</span><br><span class="line">    &#123;      </span><br><span class="line">        if (Input.GetKey(interact))//如果按下互動鍵</span><br><span class="line">        &#123;        </span><br><span class="line">            o.collider.gameObject.GetComponent&lt;Box&gt;().followPlayer(boxSpeedX, boxSpeedY);//告訴拼圖跟著玩家走</span><br><span class="line">            o.collider.GetComponent&lt;Box&gt;().checkName(o.collider.gameObject.name);//確定打到的拼圖跟要移動的是同一個拼圖</span><br><span class="line">            canDragOther = false;//一次只能移動一片拼圖   </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if (Input.GetKeyUp(interact)) &#123;</span><br><span class="line">        canDragOther = true;</span><br><span class="line">        for (int i = 0; i &lt; GameObject.FindGameObjectsWithTag(&quot;box&quot;).Length; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            FindObjectsOfType&lt;Box&gt;()[i].GetComponent&lt;Box&gt;().setStatic();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/game/" class="button small">game</a> <a href="/tags/program/" class="button small">program</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                Hi,I'm Angel, a student who is crazy about games, and my goal is to be a game programmer!
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                
+                    <li><a href="https://www.facebook.com/c6150261602" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                
+                
+                    <li><a href="https://github.com/aekly268" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+                
+                
+                    <li><a href="https://www.youtube.com/channel/UC5M9CRDjm6cf-9Z-xq8S4-A/" class="icon style2 fa-youtube" target="_blank" ><span class="label">Youtube</span></a></li>
+                
+            </ul>
+        </section>
+
+    </div>
+</footer>
+
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- skel -->
+<script src="/js/skel.min.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/util.js"></script>
+
+<!--[if lte IE 8]>
+<script src="/js/ie/respond.min.js"></script>
+<![endif]-->
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+
+</html>
