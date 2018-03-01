@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut Icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <!--Description-->
+    
+        <meta name="description" content="Game, program, design, and life">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Angel">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="【Game】Ball"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Angel"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>【Game】Ball - Angel</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/sass/main.css">
+
+    <!--[if lt IE 8]>
+        <script src="/js/ie/html5shiv.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/sass/ie8.css">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="/sass/ie9.css">
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo_binly.png" alt="" /></span><span class="title">Angel</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/tags/game/">Games</a>
+            </li>
+        
+            <li>
+                <a href="/tags/program">Program</a>
+            </li>
+        
+            <li>
+                <a href="/tags/life">Life</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>【Game】Ball</h1>
+
+
+
+<!-- Gallery -->
+
+    
+<div class="gallery-container">
+    
+        
+            <div class="picture-container">
+                <a href="#" data-featherlight="/../images/ball_1.PNG">
+                    <img src="/../images/ball_1.PNG" class="img-thumbnail" />
+                </a>
+            </div>
+        
+            <div class="picture-container">
+                <a href="#" data-featherlight="/../images/ball_2.PNG">
+                    <img src="/../images/ball_2.PNG" class="img-thumbnail" />
+                </a>
+            </div>
+        
+    
+</div>
+
+
+<!-- Content -->
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很久很久以前，在電子電路課期中專題，利用arduino+壓力感測器+LED矩陣做了躲球遊戲</p>
+<h2 id="the-ball"><a href="#the-ball" class="headerlink" title="the ball"></a>the ball</h2><p>說明：利用電子電路製作的躲球遊戲<br>操作：用手指按壓壓力感測器，越大力則點往越左邊<br><div class="video-container"><iframe src="//www.youtube.com/embed/-aHgjkvc8jg" frameborder="0" allowfullscreen></iframe></div></p>
+<h2 id="程式小筆記"><a href="#程式小筆記" class="headerlink" title="程式小筆記"></a>程式小筆記</h2><p>github完整專案： <a href="https://github.com/aekly268/the-ball" target="_blank" rel="noopener">https://github.com/aekly268/the-ball</a></p>
+<ol>
+<li><p>遊戲邏輯很簡單，在每行隨機產生點點，然後再透過計時器去更新位置跟判斷是否輸了<br>沒錯，這是一個一定會輸的遊戲</p>
+<figure class="highlight plain"><figcaption><span>ball</span><a href="https://github.com/aekly268/the-ball/blob/master/ball_finish.ino" target="_blank" rel="noopener">ball.ino</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void game() &#123;</span><br><span class="line">   iFlag=1;</span><br><span class="line">  int fsr_value = analogRead(fsr_pin); // 讀取FSR</span><br><span class="line">  if(fsr_value &gt;550)fsr_value=550;//讓壓力不要報表</span><br><span class="line">  int dist = map(fsr_value, 0, 550, 0, 7);</span><br><span class="line">  matrix[5] = transbyte(dist);//畫出玩家位置</span><br><span class="line">  matrix[6] = transbyte(dist);</span><br><span class="line"></span><br><span class="line">  if ((millis() - dotTimer) &gt; 1000 * 0.5) &#123;//更新點點位置</span><br><span class="line">    for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">      if (dotY[i] &lt; 4) &#123;</span><br><span class="line">        dotY[i]++;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        if (matrix[dotY[i]] == (matrix[dotY[i]] &amp; matrix[5])) &#123;//打到玩家</span><br><span class="line">          state = OVER;</span><br><span class="line">        &#125;</span><br><span class="line">        dotX[i] = random(0, 8);</span><br><span class="line">        dotY[i] = 0;</span><br><span class="line">      &#125;</span><br><span class="line">      dotTimer = millis();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>開始結束的圖案、音樂則是事先寫好存在程式裡，需要的時候才呼叫</p>
+<figure class="highlight plain"><figcaption><span>smile</span><a href="https://github.com/aekly268/the-ball/blob/master/ball_finish.ino" target="_blank" rel="noopener">ball.ino</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//笑臉圖案</span><br><span class="line">byte readyMatrix[8] = &#123; B11111111,</span><br><span class="line">                        B11011011,</span><br><span class="line">                        B11011011,</span><br><span class="line">                        B11111111,</span><br><span class="line">                        B10111101,</span><br><span class="line">                        B11011011,</span><br><span class="line">                        B11100111,</span><br><span class="line">                        B11111111,</span><br><span class="line">                      &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>太久沒有碰arduino，回頭去看當初寫的程式很多API都忘光光了😳<br>但過了這麼久，我還記得電子電路最可怕的不是寫程式，而是硬體方面！<br>有時候線鬆脫、腳位接錯、硬體本身壞掉，各種恐怖的事情都會發生，大部分時間都在小心翼翼的檢查硬體啊！</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/game/" class="button small">game</a> <a href="/tags/program/" class="button small">program</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                Hi,I'm Angel, a student who is crazy about games, and my goal is to be a game programmer!
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                
+                    <li><a href="https://www.facebook.com/c6150261602" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                
+                
+                    <li><a href="https://github.com/aekly268" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+                
+                
+                    <li><a href="https://www.youtube.com/channel/UC5M9CRDjm6cf-9Z-xq8S4-A/" class="icon style2 fa-youtube" target="_blank" ><span class="label">Youtube</span></a></li>
+                
+            </ul>
+        </section>
+
+    </div>
+</footer>
+
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- skel -->
+<script src="/js/skel.min.js"></script>
+
+<!-- Custom Code -->
+<script src="/js/util.js"></script>
+
+<!--[if lte IE 8]>
+<script src="/js/ie/respond.min.js"></script>
+<![endif]-->
+
+<!-- Custom Code -->
+<script src="/js/main.js"></script>
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+
+</html>
