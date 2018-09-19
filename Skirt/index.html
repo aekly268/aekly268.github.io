@@ -11,30 +11,30 @@
     <link rel="shortcut Icon" type="image/x-icon" href="/images/favicon.ico" />
 
     <!--Description-->
-    
+
         <meta name="description" content="Game, Program, Design, and Life!">
-    
+
 
     <!--Author-->
-    
+
         <meta name="author" content="Angel">
-    
+
 
     <!--Open Graph Title-->
-    
+
         <meta property="og:title" content="【Game】藍黑白金裙"/>
-    
+
 
     <!--Open Graph Site Name-->
     <meta property="og:site_name" content="Usagi - 小兔子的開發網誌"/>
 
     <!--Page Cover-->
-    
+
         <meta property="og:image" content=""/>
-    
+
 
     <!-- Title -->
-    
+
     <title>【Game】藍黑白金裙 - Usagi - 小兔子的開發網誌</title>
 
     <!-- Custom CSS -->
@@ -56,7 +56,7 @@
     <link href="/css/featherlight.min.css" type="text/css" rel="stylesheet" />
 
     <!-- Google Analytics -->
-    
+
 
 
 </head>
@@ -90,36 +90,274 @@
 <nav id="menu">
     <h2>Menu</h2>
     <ul>
-        
+
             <li>
                 <a href="/">Home</a>
             </li>
-        
+
             <li>
                 <a href="/archives">Articles</a>
             </li>
-        
+
             <li>
                 <a href="/tags/game/">Games</a>
             </li>
-        
+
             <li>
                 <a href="/tags/program">Program</a>
             </li>
-        
+
             <li>
                 <a href="/tags/life">Life</a>
             </li>
-        
+
     </ul>
 </nav>
 
+<script src="processing.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
 
+
+
+class CButton{
+PImage normal,press;
+int imgX,imgY,mouseClickX,mouseClickY;
+int IMG_WIDTH = 64, IMG_HEIGHTH = 64;
+boolean isPress=false,isClick=false;
+String stringN,stringP;
+color BGcolor;
+int type;
+float time,ptime;
+CButton(String strN,String strP,int x,int y){
+stringN = strN;
+stringP = strP;
+
+imgX=x;
+imgY=y;
+}
+void init(color Color){
+normal = loadImage(stringN);
+press = loadImage(stringP);
+BGcolor=Color;
+time=millis();
+}
+void update(){
+if(isPress) image(press,imgX, imgY);
+else  image(normal,imgX, imgY);
+}
+int mouseReleased(){
+isPress = false;
+if(mouseX > imgX && mouseX < imgX+IMG_WIDTH && mouseY > imgY && mouseY < imgY+IMG_WIDTH){
+return(type);
+}
+return(0);
+}
+color mousePressed(int Type){
+
+//check area
+if(mouseX > imgX && mouseX < imgX+IMG_WIDTH && mouseY > imgY && mouseY < imgY+IMG_WIDTH){
+type=Type;
+isPress = true;
+if(type == 4){//reset
+return(color(1,1,1));
+}
+return (BGcolor);
+}
+return(0);
+}
+color randomColor(){
+ptime=millis()-time;
+if(ptime > 2000){
+time=millis();
+ptime=0;
+BGcolor= color( (millis()*0.5*millis() ) % 225 +10,(millis() * millis() * 0.1)% 225 +10, (millis()) % 225 +10);
+return(BGcolor);
+}
+return(0);
+}
+
+}
+class CImage{
+PImage img;
+int imgX,imgY,mouseClickX,mouseClickY,startX,startY;
+int IMG_WIDTH = 200, IMG_HEIGHTH = 200;
+int offsetX,offsetY;
+boolean isInArea=false;
+String string;
+CImage (String str) {
+string = str;
+imgX = imgY = 0;
+}
+CImage (String str,int x,int y) {
+string = str;
+imgX =startX =x;
+imgY =startY= y;
+}
+CImage (String str,int x,int y, int w,int h) {
+string = str;
+imgX =startX=x;
+imgY =startY= y;
+IMG_WIDTH = w;
+IMG_HEIGHTH = h;
+}
+void reset(){
+imgX =startX;
+imgY =startY;
+}
+void init(){
+img = loadImage(string);
+}
+void update(){
+image(img,imgX+offsetX, imgY+offsetY);
+}
+
+void mouseReleased(){
+isInArea = false;
+imgX += offsetX; imgY += offsetY;
+offsetX = offsetY = 0;
+
+
+}
+void mousePressed(){
+
+//check area
+if(mouseX > imgX && mouseX < imgX+IMG_WIDTH && mouseY > imgY && mouseY < imgY+IMG_WIDTH){
+mouseClickX = mouseX;
+mouseClickY = mouseY;
+isInArea = true;
+
+
+}
+
+}
+void mouseDragged(){
+if(isInArea){
+offsetX = mouseX-mouseClickX;
+offsetY = mouseY-mouseClickY;
+}
+
+
+}
+}
+
+CImage fakeblueImg=new CImage("data/blue.png",200,200);
+CImage yellowImg=new CImage("data/yellow.png",400,200);
+CImage blueImg=new CImage("data/realBlue.png",0,200);
+
+CButton grayBtn=new CButton("data/gray_btn.png","data/gray_btnP.png",300,50);
+CButton blackBtn=new CButton("data/black_btn.png","data/black_btnP.png",216,50);
+CButton whiteBtn=new CButton("data/white_btn.png","data/white_btnP.png",133,50);
+CButton mixBtn=new CButton("data/mix_btn.png","data/mix_btnP.png",383,50);
+CButton randomBtn=new CButton("data/random_btn.png","data/random_btnP.png",466,50);
+CButton resetBtn=new CButton("data/reset_btn.png","data/reset_btnP.png",50,50);
+
+color bgColor=color(255,255,255);
+int btnType;
+
+void setup(){
+size(600, 600);
+background(bgColor);
+blueImg.init();
+yellowImg.init();
+fakeblueImg.init();
+grayBtn.init(color(148,148,148));
+blackBtn.init(color(0,0,0));
+whiteBtn.init(color(255,255,255));
+mixBtn.init(color(148,148,148));
+randomBtn.init(color(random(0,255),random(0,255),random(0,255)));
+resetBtn.init(color(255,255,255));
+noStroke();
+}
+void draw(){
+
+background(bgColor);
+if(btnType==3){
+color t = randomBtn.randomColor();
+if(t!=0)bgColor = t;
+}
+
+
+if(btnType==2){
+fill(color(198,189,169));
+rect(100,0,200,600);
+fill(color(84,84,107));
+rect(300,0,200,600);
+}
+
+blueImg.update();
+yellowImg.update();
+fakeblueImg.update();
+grayBtn.update();
+blackBtn.update();
+whiteBtn.update();
+mixBtn.update();
+randomBtn.update();
+resetBtn.update();
+
+}
+
+void mouseReleased(){
+blueImg.mouseReleased();
+yellowImg.mouseReleased();
+fakeblueImg.mouseReleased();
+int t;
+t= grayBtn.mouseReleased();
+if(t!=0)  btnType=t;
+
+t= blackBtn.mouseReleased();
+if(t!=0)  btnType=t;
+
+t= whiteBtn.mouseReleased();
+if(t!=0)  btnType=t;
+
+t= mixBtn.mouseReleased();
+if(t!=0)  btnType=t;
+
+t= randomBtn.mouseReleased();
+if(t!=0)  btnType=t;
+print(btnType);
+resetBtn.mouseReleased();
+}
+void mousePressed(){
+blueImg.mousePressed();
+yellowImg.mousePressed();
+fakeblueImg.mousePressed();
+
+
+color t= grayBtn.mousePressed(1);
+if(t!=0) bgColor=t;
+
+color t2= blackBtn.mousePressed(1);
+if(t2!=0) bgColor=t2;
+
+color t3= whiteBtn.mousePressed(1);
+if(t3!=0) bgColor=t3;
+
+color t4= mixBtn.mousePressed(2);
+if(t4!=0) bgColor=t4;
+
+color t5= randomBtn.mousePressed(3);
+if(t5!=0) bgColor=t5;
+
+color t6 = resetBtn.mousePressed(4);//reset
+if(t6 == color(1,1,1)){
+blueImg.reset();
+yellowImg.reset();
+fakeblueImg.reset();
+}
+}
+void mouseDragged(){
+blueImg.mouseDragged();
+yellowImg.mouseDragged();
+fakeblueImg.mouseDragged();
+
+}
+</script>
         <div id="main">
             <div class="inner">
 
                 <!-- Main Content -->
-                
+
 
     <h1>【Game】藍黑白金裙</h1>
 
@@ -131,7 +369,8 @@
 <!-- Content -->
 <h2 id="一件洋裝讓七十億人口都驚呆了"><a href="#一件洋裝讓七十億人口都驚呆了" class="headerlink" title="一件洋裝讓七十億人口都驚呆了"></a>一件洋裝讓七十億人口都驚呆了</h2><p>“你知道前幾年很紅的神秘洋裝嗎?”<br>“是那件藍黑洋裝嗎? 我知道啊”<br>“什麼藍黑 明明是白金 你眼睛有問題喔”<br>“你才有問題! 你全家都有問題😡”</p>
 <h2 id="突然就總結了"><a href="#突然就總結了" class="headerlink" title="突然就總結了"></a>突然就總結了</h2><p>之所以會看到不同顏色，主要是受光線的影響<br>洋裝的顏色 = 打了亮光的藍黑 = 在陰影下的白金<br>還有報導說跟眼睛的<a href="https://zh.wikipedia.org/wiki/视杆细胞" target="_blank" rel="noopener">錐狀細胞、桿狀細胞</a>有關，甚至說跟起床時間有關(?<br>總之，你的眼睛很容易被騙!!</p>
-<h2 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h2><p>做了一個可以玩弄眼睛的小東西，試試看在不同顏色背景下撫弄、拖動色塊，看到什麼色喔<br>把中間色塊對齊第四個背景的兩種色塊，就兩種顏色都看的到了!<br>(建議不要玩彩色的 眼睛會好痛)</p>
+<h2 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h2>		<canvas id="mycanvas" class="image skirt"></canvas>
+<p>做了一個可以玩弄眼睛的小東西，試試看在不同顏色背景下撫弄、拖動色塊，看到什麼色喔<br>把中間色塊對齊第四個背景的兩種色塊，就兩種顏色都看的到了!<br>(建議不要玩彩色的 眼睛會好痛)</p>
 <h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>原汁原味地把以前網站的奇聞軼事搬過來，回頭來看文章的風格也太智障，好害羞…<br>第一段在模擬兩個人講話，有沒有栩栩如生呢😂😂</p>
 
 
@@ -147,20 +386,20 @@
 
 
 
-  
 
 
 
-  
+
+
     <a href="/2018FGJ/" class="button small" title="【Game】特務跑跑">下一篇:【Game】特務跑跑</a>
-  
+
 
 
 
 
 <!-- Comments -->
 <div>
-    
+
 
 
 </div>
@@ -182,23 +421,23 @@
         <section>
             <h2>Follow</h2>
             <ul class="icons">
-                
-                
+
+
                     <li><a href="https://www.facebook.com/c6150261602" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
-                
-                
-                
-                
+
+
+
+
                     <li><a href="https://github.com/aekly268" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
-                
-                
-                
-                
-                
-                
-                
+
+
+
+
+
+
+
                     <li><a href="https://www.youtube.com/channel/UC5M9CRDjm6cf-9Z-xq8S4-A/" class="icon style2 fa-youtube" target="_blank" ><span class="label">Youtube</span></a></li>
-                
+
             </ul>
         </section>
 
@@ -208,7 +447,7 @@
     </div>
 
     <!-- After footer scripts -->
-    
+
 <!-- jQuery -->
 <script src="/js/jquery.min.js"></script>
 
