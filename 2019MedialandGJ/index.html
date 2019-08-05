@@ -22,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="愛的方吉"/>
+        <meta property="og:title" content="Witch Go"/>
     
 
     <!--Open Graph Site Name-->
@@ -35,7 +35,7 @@
 
     <!-- Title -->
     
-    <title>愛的方吉 - BunnyGame - 小兔子遊戲開發</title>
+    <title>Witch Go - BunnyGame - 小兔子遊戲開發</title>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/sass/main.css">
@@ -125,7 +125,7 @@
                 <!-- Main Content -->
                 
 
-    <h1>愛的方吉</h1>
+    <h1>Witch Go</h1>
 
 
 
@@ -133,21 +133,21 @@
 
 
 <!-- Content -->
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>不敢和心愛的人告白嗎？那就讓愛的方吉幫你完成願望吧！</p>
-<h2 id="愛的方吉"><a href="#愛的方吉" class="headerlink" title="愛的方吉"></a>愛的方吉</h2><p>愛的方吉是一台WIFI遙控車，當你看到心上人卻不敢告白的時候，就出動她吧！<br>可愛的外型和美妙的音樂絕對能夠幫你打動她的心，但是要注意：</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新的<a href="https://itch.io/jam/medialand-game-jam" target="_blank" rel="noopener">米蘭Game Jam</a>，絕對不能少了我這個披薩常客。<br>這次還約了有興趣的同事一起組隊參加，看看能不能迸出新滋味！</p>
+<h2 id="Witch-Go"><a href="#Witch-Go" class="headerlink" title="Witch Go"></a>Witch Go</h2><p>類型：3D動作遊戲<br>說明：近年food panda盛行，為了讓玩家體驗送貨員的辛勞，我們結合魔法少女與地圖的因素，<br>騎著掃把的魔法少女，在有效時間內，穿梭在城市中協助居民送貨。</p>
+<p>操作：</p>
 <ol>
-<li>要準確的移動方吉到指定位置</li>
-<li>準確地按下告白按鈕，讓方吉幫你告白</li>
+<li>WASD與滑鼠控制少女</li>
+<li>Space飛行</li>
 </ol>
-<div class="video-container"><iframe src="//www.youtube.com/embed/qIkyARkZqcU" frameborder="0" allowfullscreen></iframe></div>
-<p><br></p>
-<h2 id="程式小筆記"><a href="#程式小筆記" class="headerlink" title="程式小筆記"></a>程式小筆記</h2><ol>
-<li><p>利用NodeMCU處理通訊問題，剩下最困難的是讓遙控車動起來：<br>a. 減少板子重量(不可能，他一定要放在上面)<br>b. 讓馬力加大(不可能，電池電壓就那麼大)<br>在絕望中我想到的最後辦法就是：把很重的電池放在地上(完全沒有解決問題)，在demo的時候讓方吉能夠小範圍的移動</p>
-</li>
-<li><p>手機網頁端利用Ajax讓表單提交後不會重新整理頁面，看起來比較舒適</p>
-</li>
-<li>最難解決的還是硬體上的問題，線容易鬆脫，還有正負極接錯不小心燒壞了兩個板子等等😳😳<br>由於材料大部分是和學校借的，在期末展示結束後就馬上拆掉了，我們懷念她</li>
-</ol>
+<p>組員：7人<br>負責部分：串接流程、倒數、分數、開始結束畫面<br><a href="https://woodybon.itch.io/witchgo" target="_blank" rel="noopener">遊戲連結</a><br><a href="https://github.com/aekly268/Witch.git" target="_blank" rel="noopener">github repo</a><br><div class="video-container"><iframe src="//www.youtube.com/embed/i7sc8EVkSu0" frameborder="0" allowfullscreen></iframe></div><br><br></p>
+<h2 id="小意外"><a href="#小意外" class="headerlink" title="小意外"></a>小意外</h2><p>原本我們六人自己組隊，但主辦單位好像漏看了，所以意外被分配到的逾期就這樣被趕走了QQ<br>然後還現場臨時多加了一人到組裡，所以我們有七個人，我還是第一次體驗這麼多人的合作！</p>
+<h2 id="分工"><a href="#分工" class="headerlink" title="分工"></a>分工</h2><p>這次的主題是魔法少女跟地圖，我們在第一個早上很快地把遊戲確定後就開始動工，<br>但問題來了：我們的美術只有一個，所以模型除了主角其他都是利用現有的素材拼拼湊湊的，美術在game jam裡真的是SSR呢<br>程式很多，所以分到的工作也相對輕鬆，這次主要和同事Woody負責串好所有的的流程，也做了一些畫面上的小雜工。</p>
+<h2 id="拜託不要有衝突"><a href="#拜託不要有衝突" class="headerlink" title="拜託不要有衝突"></a>拜託不要有衝突</h2><p>第一天因為功能都沒開發好，所以其實蠻閒的，慢慢構想計時和計分的接口，<br>最後才發現好像不用規劃的那麼詳細，這可是game jam哪，應該把多的時間拿去做特效的</p>
+<p>第二天就早上陸續串好角色跟場景，但這時候大家都把東西合進同一個場景、改動同個預置物，<br>所以就發生超多衝突，其中有一個超嚴重的錯誤多虧隊友來救火才解決一半(因為另一半做好的結束畫面消失了，所以後來又重做一次…)<br>不過有趕在發表前把所有功能都整合起來，謝天謝地。</p>
+<p>平常對一個人開發都不會遇到，所以相對應的git command也都不熟，需要多加強<br>普通的程式碼衝突還好解，但這次遇到根本看不太懂得.scene檔或是.prefab，<br>放到文字編輯器就算想解衝突，但是完全搞不懂他更動的uuid等屬性代表什麼意思…<br>最後還是亂選一個，先讓衝突消失再看看缺了那些再手動擺上去。<br>我想還是不要大家一起更動場景才是好的解決辦法，吧？</p>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>自從上班之後，參加game jam的次數好像也沒有變少，<br>主要還是因為我有好棒的朋友能跟我一起參加，雖然他做的東西常常都來不及放進遊戲裡(淡淡的哀傷)</p>
+<p>跟學生時期相比，這幾次game jam給我的感覺有點像是慢跑(平常工作是快跑)，<br>能稍微緩下速度自己規劃這個遊戲，幫他加點怪怪的東西、為所欲為一下。<br>同時能做一些平常不會做的事(當美術、多人開發等等)，就算作品沒有很完整也沒關係，<br>因為我和隊友們在同一段時間進入了同個領域，一起做出了屬於我們自己的感動，這種感覺真的很棒！<br>雖然隔天起床真的很痛苦😳</p>
 
 
 <!-- Tags -->
@@ -155,7 +155,7 @@
 
 
 <div class="tags">
-    <a href="/tags/program/" class="button small">program</a>
+    <a href="/tags/game/" class="button small">game</a> <a href="/tags/program/" class="button small">program</a> <a href="/tags/design/" class="button small">design</a>
 </div>
 
 
@@ -164,13 +164,11 @@
 
 
   
-    <a href="/CocosWorks/" class="button small" title="Cocos2dX">上一篇:Cocos2dX</a>
-  
 
 
 
   
-    <a href="/OpenGLWorks/" class="button small" title="OpenGL works">下一篇:OpenGL works</a>
+    <a href="/2019VRhackfest/" class="button small" title="Force Upload">下一篇:Force Upload</a>
   
 
 

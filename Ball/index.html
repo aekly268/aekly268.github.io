@@ -22,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="【Game】Ball"/>
+        <meta property="og:title" content="Ball"/>
     
 
     <!--Open Graph Site Name-->
@@ -35,7 +35,7 @@
 
     <!-- Title -->
     
-    <title>【Game】Ball - BunnyGame - 小兔子遊戲開發</title>
+    <title>Ball - BunnyGame - 小兔子遊戲開發</title>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/sass/main.css">
@@ -125,7 +125,7 @@
                 <!-- Main Content -->
                 
 
-    <h1>【Game】Ball</h1>
+    <h1>Ball</h1>
 
 
 
@@ -154,7 +154,7 @@
 <!-- Content -->
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很久很久以前，在電子電路課期中專題，利用arduino+壓力感測器+LED矩陣做了躲球遊戲</p>
 <h2 id="the-ball"><a href="#the-ball" class="headerlink" title="the ball"></a>the ball</h2><p>說明：利用電子電路製作的躲球遊戲<br>操作：用手指按壓壓力感測器，越大力則點往越左邊<br><div class="video-container"><iframe src="//www.youtube.com/embed/-aHgjkvc8jg" frameborder="0" allowfullscreen></iframe></div></p>
-<h2 id="程式小筆記"><a href="#程式小筆記" class="headerlink" title="程式小筆記"></a>程式小筆記</h2><p>github完整專案： <a href="https://github.com/aekly268/the-ball" target="_blank" rel="noopener">https://github.com/aekly268/the-ball</a></p>
+<h2 id="程式小筆記"><a href="#程式小筆記" class="headerlink" title="程式小筆記"></a>程式小筆記</h2><p><a href="https://github.com/aekly268/the-ball" target="_blank" rel="noopener">github repo</a></p>
 <ol>
 <li><p>遊戲邏輯很簡單，在每行隨機產生點點，然後再透過計時器去更新位置跟判斷是否輸了<br>沒錯，這是一個一定會輸的遊戲</p>
 <figure class="highlight plain"><figcaption><span>ball</span><a href="https://github.com/aekly268/the-ball/blob/master/ball_finish.ino" target="_blank" rel="noopener">ball.ino</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void game() &#123;</span><br><span class="line">   iFlag=1;</span><br><span class="line">  int fsr_value = analogRead(fsr_pin); // 讀取FSR</span><br><span class="line">  if(fsr_value &gt;550)fsr_value=550;//讓壓力不要報表</span><br><span class="line">  int dist = map(fsr_value, 0, 550, 0, 7);</span><br><span class="line">  matrix[5] = transbyte(dist);//畫出玩家位置</span><br><span class="line">  matrix[6] = transbyte(dist);</span><br><span class="line"></span><br><span class="line">  if ((millis() - dotTimer) &gt; 1000 * 0.5) &#123;//更新點點位置</span><br><span class="line">    for (int i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">      if (dotY[i] &lt; 4) &#123;</span><br><span class="line">        dotY[i]++;</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        if (matrix[dotY[i]] == (matrix[dotY[i]] &amp; matrix[5])) &#123;//打到玩家</span><br><span class="line">          state = OVER;</span><br><span class="line">        &#125;</span><br><span class="line">        dotX[i] = random(0, 8);</span><br><span class="line">        dotY[i] = 0;</span><br><span class="line">      &#125;</span><br><span class="line">      dotTimer = millis();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -180,13 +180,13 @@
 
 
   
-    <a href="/EatHoney/" class="button small" title="【Game】吃蜂蜜">上一篇:【Game】吃蜂蜜</a>
+    <a href="/EatHoney/" class="button small" title="吃蜂蜜">上一篇:吃蜂蜜</a>
   
 
 
 
   
-    <a href="/LoveFunghi/" class="button small" title="【Work】愛的方吉">下一篇:【Work】愛的方吉</a>
+    <a href="/CocosWorks/" class="button small" title="Cocos2dX">下一篇:Cocos2dX</a>
   
 
 
