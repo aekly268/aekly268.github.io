@@ -22,7 +22,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="馬賽克模擬器"/>
+        <meta property="og:title" content="Mosiac Simulator"/>
     
 
     <!--Open Graph Site Name-->
@@ -35,7 +35,7 @@
 
     <!-- Title -->
     
-    <title>馬賽克模擬器 - BunnyGame - 小兔子遊戲開發</title>
+    <title>Mosiac Simulator - BunnyGame - 小兔子遊戲開發</title>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/sass/main.css">
@@ -111,10 +111,6 @@
                 <a href="/tags/design">Design</a>
             </li>
         
-            <li>
-                <a href="/tags/life">Life</a>
-            </li>
-        
     </ul>
 </nav>
 
@@ -125,7 +121,7 @@
                 <!-- Main Content -->
                 
 
-    <h1>馬賽克模擬器</h1>
+    <h1>Mosiac Simulator</h1>
 
 
 
@@ -135,13 +131,14 @@
 <!-- Content -->
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>為了吃好吃的披薩，第二屆數位系Game Jam開始了！<br>這次的主題是”模擬器”，我們聚集各路好手，在兩天多之後做出了4款遊戲！</p>
 <h2 id="DTD-Game-Jam"><a href="#DTD-Game-Jam" class="headerlink" title="DTD Game Jam"></a>DTD Game Jam</h2><p>有了上次的經驗，這次主辦活動感覺比較順利<br>雖然到最後一天跳過了發表，直接變成試玩大會~<br><a href="https://itch.io/jam/2018-dtd-game-jam" target="_blank" rel="noopener">來看看大家的作品</a></p>
-<h2 id="馬賽克模擬器-Mosiac-Simulator"><a href="#馬賽克模擬器-Mosiac-Simulator" class="headerlink" title="馬賽克模擬器 - Mosiac Simulator"></a>馬賽克模擬器 - Mosiac Simulator</h2><p>遊戲說明：你是後製記者，要把新聞原始檔特定目標做馬賽克或消音<br>操作：</p>
+<h2 id="Mosiac-Simulator-馬賽克模擬器"><a href="#Mosiac-Simulator-馬賽克模擬器" class="headerlink" title="Mosiac Simulator - 馬賽克模擬器"></a>Mosiac Simulator - 馬賽克模擬器</h2><p>遊戲說明：你是後製記者，要把新聞原始檔特定目標做馬賽克或消音<br>操作：</p>
 <ol>
 <li>滾輪切換馬賽克類型(馬賽克、海苔馬賽克、無)</li>
 <li>長按左鍵進行消音</li>
 </ol>
-<p><strong><a href="https://angelcheng.itch.io/mosaic" target="_blank" rel="noopener">遊戲連結</a></strong><br>(內有不雅字眼，請斟酌使用😳😳)<br><div class="video-container"><iframe src="//www.youtube.com/embed/bipBypQweNg" frameborder="0" allowfullscreen></iframe></div></p>
-<h2 id="程式小筆記"><a href="#程式小筆記" class="headerlink" title="程式小筆記"></a>程式小筆記</h2><p><a href="https://github.com/aekly268/Mosiac" target="_blank" rel="noopener">source code</a></p>
+<iframe src="https://itch.io/embed/233303?linkback=true" width="50%" height="167" frameborder="0" allowfullscreen></iframe>
+<p>(內有不雅字眼，請斟酌使用😳😳)<br><div class="video-container"><iframe src="//www.youtube.com/embed/bipBypQweNg" frameborder="0" allowfullscreen></iframe></div></p>
+<h2 id="程式小筆記"><a href="#程式小筆記" class="headerlink" title="程式小筆記"></a>程式小筆記</h2><p><a href="https://github.com/aekly268/Mosiac" target="_blank" rel="noopener"><img src="https://gh-card.dev/repos/aekly268/Mosiac.svg" width="50%"></a></p>
 <p>這次比較特別的效果是重播的功能，主要是參考這篇倒帶效果：<br><div class="video-container"><iframe src="//www.youtube.com/embed/eqlHpPzS22U" frameborder="0" allowfullscreen></iframe></div></p>
 <p>在一段時間內，紀錄玩家的位置、行為等等，在重播的時候再將串列裡的東西都拿出來，就會像是重播一樣了！<br>錄製的缺點是如果時間很長就會讓整個系統效能低下，我是用增加時間間隔減少紀錄的次數<br><figure class="highlight cs"><figcaption><span>replay</span><a href="https://github.com/aekly268/Mosiac/blob/master/Assets/Scripts/recordMouseState.cs" target="_blank" rel="noopener">replay.cs</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//record position</span></span><br><span class="line"><span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">recordPosition</span>(<span class="params">Vector3 pos, <span class="keyword">float</span> time</span>)<span class="comment">//紀錄滑鼠位置和那時的時間</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       PosState posState = <span class="keyword">new</span> PosState();</span><br><span class="line">       posState._pos = pos;</span><br><span class="line">       posState._time = time;</span><br><span class="line">       _posList.Add(posState);</span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">//replay position</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Vector3 <span class="title">replayPos</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (isReplay)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span> (posIndex == _posList.Count) posDoWork = <span class="literal">false</span>;<span class="comment">//如果串列到底 就不做事</span></span><br><span class="line">           <span class="keyword">if</span> (posDoWork &amp;&amp; nowTime &gt; _posList[posIndex]._time)<span class="comment">//如果時間大於串列裡記錄的時間</span></span><br><span class="line">           &#123;</span><br><span class="line">               posIndex++;</span><br><span class="line">               <span class="keyword">return</span> _posList[posIndex - <span class="number">1</span>]._pos;<span class="comment">//回傳串列裡儲存的位置</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> Vector3(<span class="number">-999</span>,<span class="number">-999</span>,<span class="number">-999</span>);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
@@ -164,13 +161,13 @@
 
 
   
-    <a href="/2018KGJ/" class="button small" title="相撲便便">上一篇:相撲便便</a>
+    <a href="/2018KGJ/" class="button small" title="Sumo">上一篇:Sumo</a>
   
 
 
 
   
-    <a href="/2018TainanGJ/" class="button small" title="為愛而釣 &amp; 台灣小吃">下一篇:為愛而釣 &amp; 台灣小吃</a>
+    <a href="/2018TainanGJ/" class="button small" title="No fish no love &amp; Taiwan Snack Battle">下一篇:No fish no love &amp; Taiwan Snack Battle</a>
   
 
 
