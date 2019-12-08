@@ -2357,7 +2357,7 @@ button,
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  postiion: relative;
+  position: relative;
   margin: -2.5em 0 0 -2.5em; }
   .tiles article {
     -moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
@@ -2586,6 +2586,26 @@ button,
       #main .inner .gallery-container .picture-container a .img-thumbnail {
         padding-right: 20px;
         width: 100%; }
+
+#main .inner .itch_and_ghcard {
+  position: relative;
+  width: 100%; }
+
+@media only screen and (max-width: 600px) {
+  #main .inner .itch_and_ghcard {
+    width: 100%; } }
+
+@media only screen and (min-width: 601px) and (max-width: 991px) {
+  #main .inner .itch_and_ghcard {
+    width: 552px; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #main .inner .itch_and_ghcard {
+    width: 552px; } }
+
+@media only screen and (min-width: 1200px) {
+  #main .inner .itch_and_ghcard {
+    width: 552px; } }
 
 /* Header */
 #header {
