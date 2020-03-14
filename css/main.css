@@ -1,5 +1,9 @@
 @import url(font-awesome.min.css);
 
+@font-face {
+    font-family: 'jftest';
+    src: url('../fonts/jf-openhuninn-1.0.ttf');
+}
 
 /*
 	Phantom by HTML5 UP
@@ -1642,7 +1646,7 @@
 
 	body, input, select, textarea {
 		color: #585858;
-		font-family: "Microsoft JhengHei","Source Sans Pro", Helvetica, sans-serif;
+		font-family: jftest, "Microsoft JhengHei","Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.75;
@@ -1795,7 +1799,7 @@
 		background: rgba(144, 144, 144, 0.075);
 		border-radius: 4px;
 		border: solid 1px #c9c9c9;
-		font-family: "Microsoft JhengHei","Courier New", monospace;
+		font-family: jftest, "Microsoft JhengHei","Courier New", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
@@ -1803,7 +1807,7 @@
 
 	pre {
 		-webkit-overflow-scrolling: touch;
-		font-family: "Microsoft JhengHei", "Courier New", monospace;
+		font-family: jftest, "Microsoft JhengHei", "Courier New", monospace;
 		font-size: 0.9em;
 		margin: 0 0 2em 0;
 	}
