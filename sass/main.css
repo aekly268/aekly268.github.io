@@ -1,4 +1,8 @@
 @import url(font-awesome.min.css);
+@font-face {
+  font-family: 'jftest';
+  src: url("../fonts/jf-openhuninn-1.0.ttf"); }
+
 /*
 	Phantom by HTML5 UP
 	html5up.net | @n33co
@@ -1022,7 +1026,7 @@ body {
 /* Type */
 body, input, select, textarea {
   color: #585858;
-  font-family: "Microsoft JhengHei", "Source Sans Pro", Helvetica, sans-serif;
+  font-family: jftest, "Microsoft JhengHei", "Source Sans Pro", Helvetica, sans-serif;
   font-size: 16pt;
   font-weight: 300;
   line-height: 1.75; }
@@ -1128,14 +1132,14 @@ blockquote {
 code {
   background: rgba(144, 144, 144, 0.075);
   border-radius: 4px;
-  font-family: "Courier New", monospace;
+  font-family: jftest, "Courier New", monospace;
   font-size: 0.9em;
   margin: 0 0.25em;
   padding: 0.25em 0.65em; }
 
 pre {
   -webkit-overflow-scrolling: touch;
-  font-family: "Courier New", monospace;
+  font-family: jftest, "Courier New", monospace;
   font-size: 0.9em;
   margin: 0 0 2em 0; }
   pre code {
@@ -1178,7 +1182,7 @@ pre > code {
   width: 100%;
   box-sizing: border-box;
   padding: 15px;
-  font-family: Courier New, Courier, monospace;
+  font-family: jftest, Courier New, Courier, monospace;
   border: none;
   margin: 0;
   cursor: text;
@@ -1189,7 +1193,7 @@ pre > code {
 code {
   font-size: 15px;
   display: inline-block;
-  font-family: "Courier New", Courier, monospace;
+  font-family: jftest, "Courier New", Courier, monospace;
   font-weight: 400;
   background-color: #f7f8f8;
   padding: 0 10px; }
@@ -1216,7 +1220,7 @@ figure.highlight .tag,
 .codeblock .gutter,
 .codeblock .code,
 .codeblock .tag {
-  font-family: Courier New, Courier, monospace;
+  font-family: jftest, Courier New, Courier, monospace;
   border: none;
   padding: 0;
   margin: 0;
@@ -1284,7 +1288,7 @@ figure.highlight .line,
 
 .gist .line,
 .gist .line-number {
-  font-family: "Courier New", Courier, monospace;
+  font-family: jftest, "Courier New", Courier, monospace;
   font-size: 1em;
   margin: 0 0 5px 0; }
 
